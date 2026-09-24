@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="card">
+    <h2>💙Hasil Refleksi💙</h2>
+    <h3>{{ kategori }}</h3>
+
+    <canvas id="pieChart" width="200" height="200"></canvas>
+
+    <script>
+        new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: {{ skor.keys()|list|tojson }},
+                datasets: [{
+                    data: {{ skor.values()|list|tojson }},
+                }]
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

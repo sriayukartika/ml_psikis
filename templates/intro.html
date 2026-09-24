@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="card">
+    {% if mode == "question" %}
+        <p>Pertanyaan {{ nomor }} dari 7</p>
+        <h3>{{ pertanyaan }}</h3>
+        <form method="POST">
+            <input name="jawaban" required placeholder="Tulis jawabanmu di sini">
+            <button>Next</button>
+        </form>
+    {% else %}
+        <h2>Refleksi Diri</h2>
+        <p>Jawablah beberapa pertanyaan dengan jujur</p>
+        <form method="POST">
+            <button>Mulai</button>
+        </form>
+    {% endif %}
+</div>
+</body>
+</html>
